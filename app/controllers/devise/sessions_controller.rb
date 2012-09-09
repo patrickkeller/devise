@@ -7,7 +7,7 @@ class Devise::SessionsController < DeviseController
   def new
     resource = build_resource(nil, :unsafe => true)
     clean_up_passwords(resource)
-    respond_with(resource, serialize_options(resource))
+    respond_with(resource, serialize_options(resource), :layout => false)
   end
 
   # POST /resource/sign_in
