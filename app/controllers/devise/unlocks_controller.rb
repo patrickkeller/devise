@@ -3,6 +3,7 @@ class Devise::UnlocksController < DeviseController
 
   # GET /resource/unlock/new
   def new
+    @header = "Zugang gesperrt?"
     build_resource({})
     render :layout => 'login'
   end
