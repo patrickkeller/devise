@@ -6,6 +6,7 @@ class Devise::PasswordsController < DeviseController
   # GET /resource/password/new
   def new
     build_resource({})
+    render layout => 'login'
   end
 
   # POST /resource/password
