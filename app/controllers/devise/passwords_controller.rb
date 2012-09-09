@@ -5,6 +5,7 @@ class Devise::PasswordsController < DeviseController
 
   # GET /resource/password/new
   def new
+    @header = "Passwort vergessen?"
     build_resource({})
     render :layout => 'login'
   end
