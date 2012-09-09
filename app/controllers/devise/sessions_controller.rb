@@ -1,4 +1,5 @@
 class Devise::SessionsController < DeviseController
+  layout 'login'
   prepend_before_filter :require_no_authentication, :only => [ :new, :create ]
   prepend_before_filter :allow_params_authentication!, :only => :create
   prepend_before_filter { request.env["devise.skip_timeout"] = true }
@@ -7,7 +8,7 @@ class Devise::SessionsController < DeviseController
   def new
     resource = build_resource(nil, :unsafe => true)
     clean_up_passwords(resource)
-    respond_with(resource, serialize_options(resource), :layout => 'login')
+    respond_with(resource, serialize_options(resource))
   end
 
   # POST /resource/sign_in
