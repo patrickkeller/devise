@@ -4,6 +4,7 @@ class Devise::UnlocksController < DeviseController
   # GET /resource/unlock/new
   def new
     build_resource({})
+    render layout => false
   end
 
   # POST /resource/unlock
