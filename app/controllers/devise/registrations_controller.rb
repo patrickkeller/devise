@@ -1,6 +1,7 @@
 class Devise::RegistrationsController < DeviseController
-  prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
+  #prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
   prepend_before_filter :authenticate_scope!, :only => [:edit, :update, :destroy]
+  prepend_before_filter :check_permissions, :only => [:new, :create, :cancel]
 
   # GET /resource/sign_up
   def new
@@ -109,5 +110,9 @@ class Devise::RegistrationsController < DeviseController
   def authenticate_scope!
     send(:"authenticate_#{resource_name}!", :force => true)
     self.resource = send(:"current_#{resource_name}")
+  end
+  
+  def check_permissions
+    authorize! :create, resource
   end
 end
