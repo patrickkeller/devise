@@ -7,6 +7,7 @@ class Devise::RegistrationsController < DeviseController
   def new
     resource = build_resource({})
     respond_with resource
+    render :layout => "half-form"
   end
 
   # POST /resource
