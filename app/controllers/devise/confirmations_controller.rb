@@ -1,4 +1,5 @@
 class Devise::ConfirmationsController < DeviseController
+  load_and_authorize_resource
   # GET /resource/confirmation/new
   def new
     build_resource({})
