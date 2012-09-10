@@ -6,8 +6,7 @@ class Devise::RegistrationsController < DeviseController
   # GET /resource/sign_up
   def new
     resource = build_resource({})
-    respond_with resource
-    render :layout => "half-form"
+    respond_with resource,:layout => "half-form"
   end
 
   # POST /resource
