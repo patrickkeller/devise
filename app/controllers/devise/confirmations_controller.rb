@@ -1,5 +1,4 @@
 class Devise::ConfirmationsController < DeviseController
-  skip_authorization_check
   # GET /resource/confirmation/new
   def new
     build_resource({})
