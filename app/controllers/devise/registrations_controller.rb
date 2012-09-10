@@ -16,6 +16,7 @@ class Devise::RegistrationsController < DeviseController
     if resource.save
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
+        self.resource = resource_class.send_confirmation_instructions(resource_params)
         #sign_in(resource_name, resource) # Don't sign_in automatically
         respond_with resource, :location => after_sign_up_path_for(resource)
       else
