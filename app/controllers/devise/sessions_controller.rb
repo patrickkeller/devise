@@ -4,7 +4,7 @@ class Devise::SessionsController < DeviseController
   prepend_before_filter :allow_params_authentication!, :only => :create
   prepend_before_filter { request.env["devise.skip_timeout"] = true }
   
-  skip_authorization_check :only => [:new, :create]
+  skip_authorization_check
 
   # GET /resource/sign_in
   def new
