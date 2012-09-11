@@ -6,7 +6,6 @@ class Devise::RegistrationsController < DeviseController
   # GET /resource/sign_up
   def new
     resource = build_resource({})
-    resource.roles.build
     respond_with resource
   end
 
