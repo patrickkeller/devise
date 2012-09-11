@@ -6,7 +6,9 @@ class Devise::RegistrationsController < DeviseController
   # GET /resource/sign_up
   def new
     resource = build_resource({})
-    7.times {resource.roles.build}
+    current_company.moduls.each do |modul|
+      resource.roles.build(:name => modul.name, :modul_id => modul.id, :level => 0)
+    end
     respond_with resource
   end
 
