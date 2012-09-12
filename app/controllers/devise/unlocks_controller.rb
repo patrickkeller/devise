@@ -1,11 +1,12 @@
 class Devise::UnlocksController < DeviseController
   prepend_before_filter :require_no_authentication
 
+  layout 'login'
+  
   # GET /resource/unlock/new
   def new
     @header = "Zugang gesperrt?"
     build_resource({})
-    render :layout => 'login'
   end
 
   # POST /resource/unlock
