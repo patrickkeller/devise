@@ -2,12 +2,13 @@ class Devise::PasswordsController < DeviseController
   prepend_before_filter :require_no_authentication
   # Render the #edit only if coming from a reset password email link
   append_before_filter :assert_reset_token_passed, :only => :edit
+  
+  layout 'login'
 
   # GET /resource/password/new
   def new
     @header = "Passwort vergessen?"
     build_resource({})
-    render :layout => 'login'
   end
 
   # POST /resource/password
@@ -26,7 +27,6 @@ class Devise::PasswordsController < DeviseController
     @header = "Neues Passwort"
     self.resource = resource_class.new
     resource.reset_password_token = params[:reset_password_token]
-    render :layout => 'login'
   end
 
   # PUT /resource/password
