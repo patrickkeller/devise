@@ -13,6 +13,7 @@ class Devise::PasswordsController < DeviseController
 
   # POST /resource/password
   def create
+    @header = "Neues Passwort"
     self.resource = resource_class.send_reset_password_instructions(resource_params)
 
     if successfully_sent?(resource)
@@ -31,6 +32,7 @@ class Devise::PasswordsController < DeviseController
 
   # PUT /resource/password
   def update
+    @header = "Neues Passwort"
     self.resource = resource_class.reset_password_by_token(resource_params)
 
     if resource.errors.empty?
