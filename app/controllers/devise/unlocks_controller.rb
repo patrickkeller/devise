@@ -11,6 +11,7 @@ class Devise::UnlocksController < DeviseController
 
   # POST /resource/unlock
   def create
+    @header = "Zugang gesperrt?"
     self.resource = resource_class.send_unlock_instructions(resource_params)
 
     if successfully_sent?(resource)
